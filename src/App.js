@@ -7,14 +7,12 @@ import Features from "./components/Features";
 import Pricing from "./components/Pricing";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Redirects from "./components/Redirects";
 function App() {
   return (
     <Router>
       <Header />
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
         <Route exact path="/features">
           <Features />
         </Route>
@@ -26,6 +24,12 @@ function App() {
         </Route>
         <Route exact path="/register">
           <Register />
+        </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/:id">
+          <Redirects />
         </Route>
       </Switch>
     </Router>
