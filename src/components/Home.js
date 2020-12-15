@@ -70,7 +70,9 @@ function Home() {
       <Container>
         <Row className="align-items-center" style={{ marginTop: 15 }}>
           <Col>
-            <div style={{ fontSize: 55, fontWeight: "bolder" }}>Shortly.me</div>
+            <div style={{ fontSize: 55, fontWeight: "bolder" }}>
+              Shrinkly.me
+            </div>
             <div style={{ fontSize: 24 }}>
               A smart and simple tool to share your link.
             </div>
@@ -106,7 +108,7 @@ function Home() {
             <InputGroup className="mb-3">
               <InputGroup.Prepend>
                 <InputGroup.Text id="basic-addon3">
-                  https://Shortly.me/
+                  https://Shrinkly.me/
                 </InputGroup.Text>
               </InputGroup.Prepend>
               <FormControl

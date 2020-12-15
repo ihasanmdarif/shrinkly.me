@@ -11,7 +11,7 @@ export default function Headers() {
         variant="dark"
       >
         <NavLink to="/">
-          <Navbar.Brand>Shortly</Navbar.Brand>
+          <Navbar.Brand>Shrinkly</Navbar.Brand>
         </NavLink>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
