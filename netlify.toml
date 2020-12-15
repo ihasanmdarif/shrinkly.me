@@ -22,3 +22,9 @@
   to = "/index.html"
   status = 200
 
+[[redirects]]
+  from = "/:id"
+  to = "https://shurl.hasanarif.com/:id "
+  status = 200
+
+
