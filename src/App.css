@@ -1,0 +1,8 @@
+a:hover {
+  text-decoration: none !important;
+}
+
+.navbar-nav a {
+  margin: 10px;
+  color: white;
+}

@@ -1,8 +1,6 @@
-import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
-import { Link, Switch, Route } from "react-router-dom";
-
-export default function Header() {
+import { Nav, Navbar } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+export default function Headers() {
   return (
     <>
       <Navbar
@@ -12,22 +10,24 @@ export default function Header() {
         bg="dark"
         variant="dark"
       >
-        <Navbar.Brand href="/">Shortly</Navbar.Brand>
+        <NavLink to="/">
+          <Navbar.Brand>Shortly</Navbar.Brand>
+        </NavLink>
+
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+
         <Navbar.Collapse
           className="d-flex justify-content-between"
           id="responsive-navbar-nav"
         >
           <Nav className="mr-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#feature">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/features">Features</NavLink>
+            <NavLink to="/pricing">Pricing</NavLink>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">Login</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Register
-            </Nav.Link>
+            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/register">Register</NavLink>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
