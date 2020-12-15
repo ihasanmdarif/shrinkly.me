@@ -1,0 +1,24 @@
+[[redirects]]
+  from = "/login"
+  to = "/index.html"
+  status = 200
+[[redirects]]
+  from = "/register"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/features"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/pricing"
+  to = "/index.html"
+  status = 200
+
