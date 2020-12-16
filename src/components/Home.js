@@ -56,7 +56,7 @@ function Home() {
       })
       .then((response) => {
         const { urlCode } = response.data;
-        var shortUrl = `https://shortly.me/${urlCode}`;
+        var shortUrl = `https://shrinkly.me/${urlCode}`;
         setShortenUrls([...shortenUrls, shortUrl]);
       })
       .catch((error) => {
