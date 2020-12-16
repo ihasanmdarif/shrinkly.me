@@ -23,8 +23,9 @@
   status = 200
 
 [[redirects]]
-  from = "/:id"
-  to = "https://shurl.hasanarif.com/:id "
+  from = "/*"
+  to = "https://shurl.hasanarif.com/"
+  query = {id = ":id"}
   status = 200
 
 
