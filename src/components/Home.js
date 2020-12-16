@@ -67,7 +67,7 @@ function Home() {
         //saved only last three items
         //in the history
         if (shortenUrls.length > 2) {
-          shortenUrls.pop();
+          shortenUrls.shift();
         }
         setShortenUrls([...shortenUrls, shortUrl]);
       })
