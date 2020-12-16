@@ -21,6 +21,7 @@ export default function Results(props) {
       clearTimeout(changeColorTimer);
     };
   }, [copyInfo]);
+
   const copyToClipboard = (e, textToCopy, listItemId) => {
     var textArea = document.createElement("textarea");
     textArea.value = textToCopy;
@@ -30,7 +31,7 @@ export default function Results(props) {
     document.body.appendChild(textArea);
     textArea.focus();
     textArea.select();
-    var successful = document.execCommand("copy");
+    document.execCommand("copy");
     document.body.removeChild(textArea);
     setCopyInfo({
       itemId: listItemId,

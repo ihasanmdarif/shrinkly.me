@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import shareLogo from "../images/shareLogo.svg";
 import {
   Container,
@@ -20,11 +20,18 @@ var hostToPost = "https://shurl.hasanarif.com/shrink";
 
 function Home() {
   const [longUrl, setLongUrl] = useState("");
+  const localStorageValue = JSON.parse(
+    localStorage.getItem("shrinkenUrlHistory")
+  );
   const [customCode, setCustomCode] = useState("");
-  const [shortenUrls, setShortenUrls] = useState([]);
+  const [shortenUrls, setShortenUrls] = useState(localStorageValue || []);
   const [inputIsInValid, setInputIsInValid] = useState(false);
   const [errorMessages, seterrorMessages] = useState("");
   const [codeIsTaken, setCodeIsTaken] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("shrinkenUrlHistory", JSON.stringify(shortenUrls));
+  }, [shortenUrls]);
 
   const handleUrlChange = (e) => {
     if (longUrl !== "") {
@@ -57,6 +64,11 @@ function Home() {
       .then((response) => {
         const { urlCode } = response.data;
         var shortUrl = `https://shrinkly.me/${urlCode}`;
+        //saved only last three items
+        //in the history
+        if (shortenUrls.length > 2) {
+          shortenUrls.pop();
+        }
         setShortenUrls([...shortenUrls, shortUrl]);
       })
       .catch((error) => {
