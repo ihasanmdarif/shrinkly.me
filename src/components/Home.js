@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import shareLogo from "../images/shareLogo.svg";
 import {
   Container,
@@ -33,6 +33,7 @@ function Home() {
     }
     setLongUrl(e.target.value);
   };
+
   const handleCustomCodeChange = (e) => {
     setCustomCode(e.target.value);
   };
@@ -54,7 +55,8 @@ function Home() {
         customCode: customCode,
       })
       .then((response) => {
-        const { shortUrl } = response.data;
+        const { urlCode } = response.data;
+        var shortUrl = `https://shortly.me/${urlCode}`;
         setShortenUrls([...shortenUrls, shortUrl]);
       })
       .catch((error) => {

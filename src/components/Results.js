@@ -1,20 +1,43 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ListGroup, ListGroupItem, Button, Row, Col } from "react-bootstrap";
 import { faLevelDownAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Results(props) {
-  const [variantList, setVariantList] = useState([
-    "primary",
-    "secondary",
-    "success",
-    "warning",
-    "info",
-    "dark",
-  ]);
-  Array.prototype.random = function () {
-    return this[Math.floor(Math.random() * this.length)];
+  const [copyInfo, setCopyInfo] = useState({
+    itemId: 0,
+    isCopied: false,
+  });
+  useEffect(() => {
+    let changeColorTimer = setTimeout(
+      () =>
+        setCopyInfo((prevState) => ({
+          ...prevState,
+          isCopied: false,
+        })),
+      2000
+    );
+    return () => {
+      clearTimeout(changeColorTimer);
+    };
+  }, [copyInfo]);
+  const copyToClipboard = (e, textToCopy, listItemId) => {
+    var textArea = document.createElement("textarea");
+    textArea.value = textToCopy;
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.position = "fixed";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    var successful = document.execCommand("copy");
+    document.body.removeChild(textArea);
+    setCopyInfo({
+      itemId: listItemId,
+      isCopied: true,
+    });
   };
+
   return (
     <>
       <h3>
@@ -22,12 +45,25 @@ export default function Results(props) {
       </h3>
       <ListGroup>
         {props.history
-          .map((p, index) => (
-            <ListGroupItem variant={variantList.random()} key={index}>
+          .map((param, index) => (
+            <ListGroupItem
+              key={index}
+              variant={
+                copyInfo.isCopied && copyInfo.itemId === index && "success"
+              }
+            >
               <Row>
-                <Col>{p}</Col>
+                <Col>{param}</Col>
                 <Col className="text-right">
-                  <Button size="sm">Copy</Button>
+                  <Button
+                    onClick={(e) => copyToClipboard(e, param, index)}
+                    size="sm"
+                  >
+                    Copy
+                  </Button>
+                  {index === copyInfo.itemId &&
+                    copyInfo.isCopied &&
+                    " Copied! "}
                 </Col>
               </Row>
             </ListGroupItem>
