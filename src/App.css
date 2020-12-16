@@ -34,7 +34,9 @@ a:hover {
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
-  /* CSS */
+  .main-page-row {
+    flex-direction: column-reverse;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -48,7 +50,6 @@ a:hover {
     flex-direction: column-reverse;
   }
   .link-col {
-    text-align: justify;
     font-size: 12px;
   }
   .list-group-item {

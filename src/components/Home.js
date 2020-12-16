@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import shareLogo from "../images/shareLogo.svg";
 import {
   Container,
@@ -98,7 +98,7 @@ function Home() {
             <div className="brand-name text-center">
               <FontAwesomeIcon icon={faSyncAlt} />
             </div>
-            <div className="brand-details">Or choose your custom link</div>
+            <div className="brand-details">Or make your custom link</div>
             <InputGroup className="mb-3">
               <InputGroup.Prepend>
                 <InputGroup.Text id="basic-addon3">
