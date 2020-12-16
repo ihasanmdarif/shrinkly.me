@@ -1,0 +1,7 @@
+/login    /index.html   200
+/register    /index.html   200
+/pricing    /index.html   200
+/features    /index.html   200
+
+
+/:id  https://shurl.hasanarif.com/:id 200
