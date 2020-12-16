@@ -69,16 +69,14 @@ function Home() {
 
   return (
     <>
-      <Container>
-        <Row className="align-items-center" style={{ marginTop: 15 }}>
+      <Container className="main-page-container">
+        <Row className="align-items-center main-page-row">
           <Col>
-            <div style={{ fontSize: 55, fontWeight: "bolder" }}>
-              Shrinkly.me
-            </div>
-            <div style={{ fontSize: 24 }}>
+            <div className="brand-name">Shrinkly.me</div>
+            <div className="brand-details">
               A smart and simple tool to share your link.
             </div>
-            <InputGroup className="mt-3" size="lg">
+            <InputGroup className="mt-3">
               <FormControl
                 value={longUrl}
                 name="longUrl"
@@ -97,16 +95,10 @@ function Home() {
                 {errorMessages}
               </Form.Control.Feedback>
             </InputGroup>
-            <div
-              style={{
-                fontSize: 45,
-                fontWeight: "bolder",
-                textAlign: "center",
-              }}
-            >
+            <div className="brand-name text-center">
               <FontAwesomeIcon icon={faSyncAlt} />
             </div>
-            <div style={{ fontSize: 24 }}>Or choose your custom link</div>
+            <div className="brand-details">Or choose your custom link</div>
             <InputGroup className="mb-3">
               <InputGroup.Prepend>
                 <InputGroup.Text id="basic-addon3">
@@ -126,7 +118,7 @@ function Home() {
               </Form.Control.Feedback>
             </InputGroup>
           </Col>
-          <Col xs={6} md={4}>
+          <Col xs={6} md={4} className="hero-image">
             <Image src={shareLogo} fluid />
           </Col>
         </Row>

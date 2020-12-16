@@ -53,8 +53,10 @@ export default function Results(props) {
               }
             >
               <Row>
-                <Col>{param}</Col>
-                <Col className="text-right">
+                <Col className="link-col text-center" xs={6}>
+                  {param}
+                </Col>
+                <Col xs={6} className="text-right link-col">
                   <Button
                     onClick={(e) => copyToClipboard(e, param, index)}
                     size="sm"

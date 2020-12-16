@@ -17,7 +17,7 @@ export default function Headers() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
         <Navbar.Collapse
-          className="d-flex justify-content-between"
+          className="justify-content-between"
           id="responsive-navbar-nav"
         >
           <Nav className="mr-auto">
