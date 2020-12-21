@@ -55,11 +55,11 @@ export default function Results(props) {
             >
               <Row>
                 <Col className="link-col" xs={6} md={8} lg={8}>
-                  {param}
+                  {param.shrtUrl}
                 </Col>
                 <Col xs={6} md={4} lg={4} className="text-right link-col">
                   <Button
-                    onClick={(e) => copyToClipboard(e, param, index)}
+                    onClick={(e) => copyToClipboard(e, param.shrtUrl, index)}
                     size="sm"
                   >
                     Copy
@@ -67,6 +67,11 @@ export default function Results(props) {
                   {index === copyInfo.itemId &&
                     copyInfo.isCopied &&
                     " Copied! "}
+                </Col>
+                <Col>
+                  <small style={{ fontSize: "10px" }}>
+                    Long: {param.lngUrl}
+                  </small>
                 </Col>
               </Row>
             </ListGroupItem>

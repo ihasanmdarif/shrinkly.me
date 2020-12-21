@@ -62,14 +62,18 @@ function Home() {
         customCode: customCode,
       })
       .then((response) => {
-        const { urlCode } = response.data;
+        const { longUrl, urlCode } = response.data;
+        setCodeIsTaken(false);
         var shortUrl = `https://shrinkly.me/${urlCode}`;
         //saved only last three items
         //in the history
         if (shortenUrls.length > 2) {
           shortenUrls.shift();
         }
-        setShortenUrls([...shortenUrls, shortUrl]);
+        setShortenUrls([
+          ...shortenUrls,
+          { lngUrl: longUrl, shrtUrl: shortUrl },
+        ]);
       })
       .catch((error) => {
         if (error.response.status === 409) {
