@@ -31,7 +31,10 @@ function Home() {
 
   useEffect(() => {
     localStorage.setItem("shrinkenUrlHistory", JSON.stringify(shortenUrls));
-  }, [shortenUrls]);
+    if (longUrl !== "") {
+      setInputIsInValid(false);
+    }
+  }, [shortenUrls, longUrl]);
 
   const handleUrlChange = (e) => {
     if (longUrl !== "") {
